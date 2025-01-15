@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: {{ .Values.site.name | quote }}
-  replicas: 1
+  replicas: {{ .Values.site.replicas | default 1 }}
   revisionHistoryLimit: 5
   template:
     metadata:
