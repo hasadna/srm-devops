@@ -117,9 +117,9 @@ spec:
             - name: ETL_MAPBOX_TILESET_INACCURATE_NAME
               value: {{ .Values.etl.mapboxTilesetInaccurateName | quote }}
             - name: EMAIL_NOTIFIER_SENDER_EMAIL
-              valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.emailNotifierSender | quote }}, "key":"EMAIL_NOTIFIER_SENDER_EMAIL_KEY"}}
+              valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"EMAIL_NOTIFIER_SENDER_EMAIL_KEY"}}
             - name: EMAIL_NOTIFIER_PASSWORD
-              valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.emailNotifierPassword | quote }}, "key":"EMAIL_NOTIFIER_PASSWORD_KEY"}}
+              valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"EMAIL_NOTIFIER_PASSWORD_KEY"}}
             - name: EMAIL_NOTIFIER_RECIPIENT_LIST
-              valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.emailNotifierRecipientList | quote }}, "key":"EMAIL_NOTIFIER_RECIPIENT_LIST_KEY"}}
+              valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"EMAIL_NOTIFIER_RECIPIENT_LIST_KEY"}}
 
