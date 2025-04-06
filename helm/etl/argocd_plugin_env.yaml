@@ -1,4 +1,4 @@
 - name: HELM_ARGS
   valueIf:
-    "ARGOCD_ENV_ENVIRONMENT == 'staging'": -f values.yaml  -f values.auto-updated.yaml  -f values.staging.yaml
-    "ARGOCD_ENV_ENVIRONMENT == 'production'": -f values.yaml  -f values.auto-updated.yaml  -f values.production.yaml  -f values.auto-updated.production.yaml
+    "ARGOCD_ENV_ENVIRONMENT == 'staging'": -f values.yaml  -f values.auto-updated.yaml  -f values.staging.yaml -f values.staging-envvars.yaml
+    "ARGOCD_ENV_ENVIRONMENT == 'production'": -f values.yaml  -f values.auto-updated.yaml  -f values.production.yaml  -f values.auto-updated.production.yaml -f values.production-envvars.yaml

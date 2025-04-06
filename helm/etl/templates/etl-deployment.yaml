@@ -122,4 +122,4 @@ spec:
               valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"EMAIL_NOTIFIER_PASSWORD_KEY"}}
             - name: EMAIL_NOTIFIER_RECIPIENT_LIST
               valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"EMAIL_NOTIFIER_RECIPIENT_LIST_KEY"}}
-
+            {{ if .Values.etl.env }}{{ toYaml .Values.etl.env | nindent 12 }}{{ end }}
