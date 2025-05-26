@@ -35,7 +35,10 @@ spec:
               subPath: db_data
       volumes:
         - name: data
-          {{- if and .Values.nfsServer .Values.db.nfsPath }}
+          {{- if .Values.db.pvc }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.db.pvc | quote }}
+          {{- else if and .Values.nfsServer .Values.db.nfsPath }}
           nfs:
             server: {{ .Values.nfsServer | quote }}
             path: {{ .Values.db.nfsPath | quote }}

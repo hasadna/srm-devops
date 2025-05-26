@@ -5,6 +5,7 @@ db:
   image: ghcr.io/whiletrue-industries/srm-etl-db:9ce02bcde3742805847ed5e925fe7da0e01cab34@sha256:ebb25f6a73151e0cf9167e8fb25590b6d3064b4771fdf2a761836c9fdc08ecb3
   resources: {}
   # nfsPath: ""
+  # pvc: ""
   backup:
     enabled: false
     name: db-backup
@@ -25,6 +26,7 @@ elasticsearch:
   image: ghcr.io/whiletrue-industries/srm-etl-elasticsearch:c1f1974c43f9a4113bc0c644e9e8047c5abf563a@sha256:0cca88e7ae514e170d57319e378fd03ce8c3aa063ab99593c581f0c863b1b0ff
   resources: {}
   # nfsPath: ""
+  # pvc: ""
   # secretName: "elasticsearch"
   ES_JAVA_OPTS: "-Xms512m -Xmx512m"
   enableBackups: false
@@ -46,6 +48,8 @@ minio:
   name: minio
   image: minio/minio:edge@sha256:78b6513160ee72794698b808afbeff67b44b510d6d024e0728adc57d726b6c8b
   resources: {}
+  # nfsPath: ""
+  # pvc: ""
   backup:
     enabled: false
     name: minio-backup
