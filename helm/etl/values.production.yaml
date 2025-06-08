@@ -1,14 +1,13 @@
-nfsServer: "172.16.0.9"
 
 db:
   resources: {"requests": {"cpu": "25m", "memory": "512Mi"}, "limits": {"memory": "1Gi"}}
-  nfsPath: "/srm/etl-production/db"
+  pvc: db
   backup:
     enabled: true
 
 elasticsearch:
   resources: {"requests": {"cpu": "75m", "memory": "2Gi"}, "limits": {"memory": "4Gi"}}
-  nfsPath: "/srm/etl-production/elasticsearch"
+  pvc: elasticsearch
   secretName: "elasticsearch"
   ES_JAVA_OPTS: "-Xms2048m -Xmx2048m"
   enableBackups: true
@@ -30,7 +29,7 @@ api:
 
 minio:
   resources: {"requests": {"cpu": "25m", "memory": "128Mi"}, "limits": {"memory": "256Mi"}}
-  nfsPath: "/srm/etl-production/minio"
+  pvc: minio
   backup:
     enabled: true
     TARGET_BUCKET_PATH: "kolzchut-backups/srm-etl-minio"
