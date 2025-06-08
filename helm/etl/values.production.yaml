@@ -6,7 +6,7 @@ db:
     enabled: true
 
 elasticsearch:
-  resources: {"requests": {"cpu": "25m", "memory": "2Gi"}, "limits": {"memory": "4Gi"}}
+  resources: {"requests": {"cpu": "75m", "memory": "2Gi"}, "limits": {"memory": "4Gi"}}
   pvc: elasticsearch
   secretName: "elasticsearch"
   ES_JAVA_OPTS: "-Xms2048m -Xmx2048m"
