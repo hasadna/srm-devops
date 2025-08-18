@@ -97,11 +97,11 @@ spec:
             - name: ELASTIC_URL
               valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"ELASTIC_URL"}}
             - name: ORIGIN
-              valueFrom:  {{ .Values.etl.ORIGIN | quote }}  
+              value:  {{ .Values.etl.ORIGIN | quote }}  
             - name: ENV
-              valueFrom: {{ .Values.etl.ENV | quote }}  
+              value: {{ .Values.etl.ENV | quote }}  
             - name: LOG_TO_FILE
-              valueFrom: {{ .Values.etl.LOG_TO_FILE | quote }} 
+              value: {{ .Values.etl.LOG_TO_FILE | quote }} 
             - name: ES_HOST
               value: {{ .Values.elasticsearch.name | quote }}
             - name: ES_PORT
