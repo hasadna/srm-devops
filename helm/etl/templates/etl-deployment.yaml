@@ -90,6 +90,18 @@ spec:
               value: {{ .Values.api.ES_INDEX_NAME | quote }}
             - name: ES_DATAPACKAGE
               value: {{ .Values.api.ES_DATAPACKAGE | quote }}
+            - name: ELASTIC_PASS
+              valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"ELASTIC_PASS"}}
+            - name: ELASTIC_USERNAME
+              valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"ELASTIC_USERNAME"}}
+            - name: ELASTIC_URL
+              valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"ELASTIC_URL"}}
+            - name: ORIGIN
+              valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"ORIGIN"}}
+            - name: ENV
+              valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"ENV"}}   
+            - name: LOG_TO_FILE
+              valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"LOG_TO_FILE"}}   
             - name: ES_HOST
               value: {{ .Values.elasticsearch.name | quote }}
             - name: ES_PORT
