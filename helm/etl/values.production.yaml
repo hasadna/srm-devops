@@ -18,6 +18,9 @@ kibana:
 api:
   resources: {"requests": {"cpu": "25m", "memory": "128Mi"}, "limits": {"memory": "1Gi"}}
   ES_INDEX_NAME: "srm"
+  env: "prod"
+  LOG_TO_FILE: "false"
+  ORIGIN: "https://www.kolsherut.org.il"
   ES_DATAPACKAGE: |
     https://srm.datacity.org.il/dataset/5423f041-47f3-4325-a116-8ae56c317d79/resource/d4dcb112-fcc9-4ea7-988d-e0819c4c79c3/download/datapackage.json
     https://srm.datacity.org.il/dataset/812345ae-521e-4171-9a91-d66d0fcf03df/resource/c23e5c4f-078d-45b9-bc9c-356ed87c4028/download/datapackage.json
@@ -40,9 +43,6 @@ etl:
   secretName: "etl"
   ckanHost: "https://srm.datacity.org.il"
   envName: "production"
-  env: "prod"
-  LOG_TO_FILE: "false"
-  ORIGIN: "https://www.kolsherut.org.il"
   mapboxTilesetId: "srm-kolzchut.point-data"
   mapboxTilesetName: "SRM Geo Data"
   mapboxTilesetInaccurateId: "srm-kolzchut.point-data-inaccurate"

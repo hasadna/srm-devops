@@ -31,6 +31,18 @@ spec:
               value: {{ .Values.elasticsearch.name | quote }}
             - name: ES_PORT
               value: "9200"
+            - name: ELASTIC_PASS
+              valueFrom: {"secretKeyRef":{"name":{{ .Values.api.secretName | quote }}, "key":"ELASTIC_PASS"}}
+            - name: ELASTIC_USERNAME
+              valueFrom: {"secretKeyRef":{"name":{{ .Values.api.secretName | quote }}, "key":"ELASTIC_USERNAME"}}
+            - name: ELASTIC_URL
+              valueFrom: {"secretKeyRef":{"name":{{ .Values.api.secretName | quote }}, "key":"ELASTIC_URL"}}
+            - name: ORIGIN
+              value:  {{ .Values.api.ORIGIN | quote }}  
+            - name: ENV
+              value: {{ .Values.api.ENV | quote }}  
+            - name: LOG_TO_FILE
+              value: {{ .Values.api.LOG_TO_FILE | quote }} 
             - name: ES_HTTP_AUTH
               {{- if .Values.elasticsearch.secretName }}
               valueFrom: {"secretKeyRef":{"name":{{ .Values.elasticsearch.secretName | quote }}, "key":"ES_HTTP_AUTH"}}
