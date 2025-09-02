@@ -16,7 +16,7 @@ kibana:
 
 api:
   resources: {"requests": {"cpu": "25m", "memory": "128Mi"}, "limits": {"memory": "1Gi"}}
-  env: "stage"
+  ENV: "stage"
   LOG_TO_FILE: "true"
   ORIGIN: "https://srm-staging.whiletrue.industries"
   ES_INDEX_NAME: "srm"
