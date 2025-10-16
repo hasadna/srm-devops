@@ -37,6 +37,12 @@ spec:
               valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"ELASTIC_USERNAME"}}
             - name: ELASTIC_URL
               valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"ELASTIC_URL"}}
+            - name: EMAIL_NOTIFIER_SENDER_EMAIL
+              valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"EMAIL_NOTIFIER_SENDER_EMAIL"}}
+            - name: EMAIL_NOTIFIER_PASSWORD
+              valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"EMAIL_NOTIFIER_PASSWORD"}}
+            - name: EMAIL_NOTIFIER_RECIPIENT_LIST
+              valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"EMAIL_NOTIFIER_RECIPIENT_LIST"}}
             - name: ORIGIN
               value:  {{ .Values.api.ORIGIN | quote }}  
             - name: ENV
