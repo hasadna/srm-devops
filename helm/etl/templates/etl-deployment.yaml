@@ -86,6 +86,8 @@ spec:
               valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"ETL_AIRTABLE_DATA_IMPORT_BASE"}}
             - name: ETL_MAPBOX_ACCESS_TOKEN
               valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"ETL_MAPBOX_ACCESS_TOKEN"}}
+            - name: KZ_GITHUB_TOKEN
+              valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"KZ_GITHUB_TOKEN"}}
             - name: ES_INDEX_NAME
               value: {{ .Values.api.ES_INDEX_NAME | quote }}
             - name: ES_DATAPACKAGE
