@@ -43,8 +43,6 @@ spec:
               valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"EMAIL_NOTIFIER_PASSWORD_KEY"}}
             - name: EMAIL_NOTIFIER_RECIPIENT_LIST
               valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"EMAIL_NOTIFIER_RECIPIENT_LIST_KEY"}}
-            - name: KZ_GITHUB_TOKEN
-              valueFrom: {"secretKeyRef":{"name":{{ .Values.etl.secretName | quote }}, "key":"KZ_GITHUB_TOKEN"}}
             - name: ORIGIN
               value:  {{ .Values.api.ORIGIN | quote }}  
             - name: ENV
